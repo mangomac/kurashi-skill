@@ -87,6 +87,7 @@ Node.js 18 以上と `npx` が必要です。詳しくは [インストールガ
 ## 30日間の公開開発 (build in public) チャレンジ実施中
 
 このリポジトリは、30日間の公開開発チャレンジとして育っています。1日1スキル、コミットがそのままQiitaの記事になる方式です。なお、制作パートナーのAIエージェント(Astra)のクオータが30日間持つかどうかが、実は最大のリスク要因だったりします。
+
 現在の収録数: **18スキル** (2026-09-20)。Day 3以降の追加・変更履歴は、重複によるずれを防ぐため [CHANGELOG.md](CHANGELOG.md) を正本とします。
 
 | Day | 日付 | できごと |
@@ -167,6 +168,7 @@ Recommended packs by purpose and ten ready-to-ask sample questions are in the [s
 ### Building in public: a 30-day challenge
 
 This repository is growing as a 30-day build-in-public challenge: one skill a day, with each commit doubling as a Qiita article. Frankly, the biggest risk factor is whether the quota of Astra - the AI agent co-authoring this series - survives all 30 days.
+
 Current collection: **18 skills** (2026-09-20). To prevent duplicated records from drifting, [CHANGELOG.md](CHANGELOG.md) is the canonical record for additions and changes from Day 3 onward.
 
 | Day | Date | What happened |
