@@ -6,7 +6,7 @@ files=[root/'README.md',*root.glob('*/SKILL.md'),*root.glob('docs/**/*.md')]
 failed=False; checked=0; executed=0
 # Syntax-check every supported fence. Execute only self-contained, offline snippets;
 # network examples are exercised by check-urls.py instead.
-unsafe=re.compile(r'\b(curl|wget|npx|npm|gh|git|rm|mv|cp|jq|grep|sed|awk|cat|ls|find|unzip)\b|https?://|/tmp/|\{[A-Z][A-Z0-9_]*\}|\$\{?[A-Z_][A-Z0-9_]*\}?|\b(open|read_text|read_bytes|Image\.open)\s*\(')
+unsafe=re.compile(r'\b(curl|wget|npx|npm|gh|git|rm|mv|cp|jq|grep|sed|awk|cat|ls|find|unzip)\b|https?://|/tmp/|\{[A-Z][A-Z0-9_]*\}|\$\{?[A-Z_][A-Z0-9_]*\}?|\b(open|read_text|read_bytes|Image\.open)\s*\(|python3?\s+[\w./~-]*\.py\b')
 for path in files:
     text=path.read_text(encoding='utf-8')
     for i,m in enumerate(re.finditer(r'^```(bash|sh|python|py)\s*\n(.*?)^```\s*$',text,re.M|re.S),1):
