@@ -45,8 +45,8 @@ kurashi-skill/
   volcano/SKILL.md           # 火山情報
   shelter-lookup/SKILL.md    # 指定避難所
   amedas-weather/SKILL.md    # アメダス最新観測
-  air-quality/SKILL.md      # 大気汚染の速報値
-  heatstroke/SKILL.md       # 暑さ指数(WBGT)
+  air-quality/SKILL.md       # 大気汚染の速報値
+  heatstroke/SKILL.md        # 暑さ指数(WBGT)
   address-normalize/SKILL.md # 住所の分解・正規化
   docs/
     install.md
