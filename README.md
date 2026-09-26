@@ -49,6 +49,9 @@ Claude Code、Codex、OpenCode など、`npx skills add` に対応したコー�
 | 火山情報を調べる | `volcano` | 気象庁の公開JSONから噴火速報・噴火警報・火山解説情報を取得 | 不要 | [volcano ガイド](docs/features/volcano.md) |
 | 指定避難所を検索する | `shelter-lookup` | 国土地理院の公式CSVから災害別に最寄り3か所を直線距離順で検索 | 不要 | [shelter-lookup ガイド](docs/features/shelter-lookup.md) |
 | アメダスの現在値を調べる | `amedas-weather` | 気象庁のアメダス観測JSONから全国約1,300観測所の気温・湿度・風・降水量の最新値を取得 | 不要 | [amedas-weather ガイド](docs/features/amedas-weather.md) |
+| 大気汚染の現在値を調べる | `air-quality` | 環境省のAEROS(そらまめくん)からPM2.5・光化学オキシダントなど全国約1,600測定局の速報値を取得 | 不要 | [air-quality ガイド](docs/features/air-quality.md) |
+| 暑さ指数(WBGT)を調べる | `heatstroke` | 環境省 熱中症予防情報サイトの公式API v1から全国865地点のWBGT予測・実況値を取得 | 不要 | [heatstroke ガイド](docs/features/heatstroke.md) |
+| 住所を分解・正規化する | `address-normalize` | デジタル庁アドレス・ベース・レジストリの公式マスタで住所を都道府県・市区町村・町字・番地に分解(表記ゆれ吸収) | 不要 | [address-normalize ガイド](docs/features/address-normalize.md) |
 
 各スキルの**正本は `<スキル名>/SKILL.md`** です。`docs/features/` のガイドは概要版なので、詳細な手順・パラメータ・エラー対応は必ず SKILL.md を参照してください。
 
@@ -92,7 +95,7 @@ Node.js 18 以上と `npx` が必要です。詳しくは [インストールガ
 | --- | --- | --- |
 | 1 | 2026-09-09 | 宣言 & リポジトリ公開 (初期スキル5個) |
 | 2 | 2026-09-10 | jma-weather v2 アップグレード |
-現在の収録数: **18スキル** (2026-09-20)。Day 3以降の追加・変更履歴は、重複によるずれを防ぐため [CHANGELOG.md](CHANGELOG.md) を正本とします。
+現在の収録数: **21スキル** (2026-09-26)
 | 3-7 | 2026-09-11 | 初期スキルの強化、CI(health-check)整備、ROADMAP策定、ライブデモGIF追加 |
 | 8-13 | 2026-09-11 | 新スキル6個追加 (wareki / rokuyo / zipcode-lookup / yubin-fee / amagumo / bosai-typhoon) |
 | 14 | 2026-09-13 | 新スキル4個追加 (eew-monitor / estat-stats / garbage-day / koyobun-check) |
@@ -129,6 +132,9 @@ Works with any coding agent that supports `npx skills add` (Claude Code, Codex, 
 | Check volcano bulletins | `volcano` | Eruption notices, warnings and explanatory bulletins from JMA public JSON | Not required | [volcano guide](docs/features/volcano.md) |
 | Search designated shelters | `shelter-lookup` | Find the nearest three official GSI evacuation sites by hazard and straight-line distance | Not required | [shelter-lookup guide](docs/features/shelter-lookup.md) |
 | Check current AMeDAS observations | `amedas-weather` | Latest temperature, humidity, wind and precipitation from about 1,300 JMA observation stations | Not required | [amedas-weather guide](docs/features/amedas-weather.md) |
+| Check current air pollution levels | `air-quality` | Hourly PM2.5 and photochemical-oxidant readings from about 1,600 stations via the Environment Ministry's AEROS/Soramame feeds | Not required | [air-quality guide](docs/features/air-quality.md) |
+| Check the heat index (WBGT) | `heatstroke` | WBGT forecasts and observed values for 865 official sites from the Environment Ministry's heatstroke-prevention API v1 | Not required | [heatstroke guide](docs/features/heatstroke.md) |
+| Split and normalize Japanese addresses | `address-normalize` | Prefecture, city and town-aza decomposition over the Digital Agency's official ABR masters, absorbing notation variants | Not required | [address-normalize guide](docs/features/address-normalize.md) |
 
 The canonical source for each skill is its `<skill>/SKILL.md`. The guides under `docs/features/` are summaries only - always refer to SKILL.md for full procedures, parameters, and error handling.
 
@@ -172,7 +178,7 @@ This repository is growing as a 30-day build-in-public challenge: one skill a da
 | --- | --- | --- |
 | 1 | 2026-09-09 | Declaration & repository launch (initial 5 skills) |
 | 2 | 2026-09-10 | jma-weather v2 upgrade |
-Current collection: **18 skills** (2026-09-20). To prevent duplicated records from drifting, [CHANGELOG.md](CHANGELOG.md) is the canonical record for additions and changes from Day 3 onward.
+Current collection: **21 skills** (2026-09-26)
 
 See [ROADMAP.md](ROADMAP.md) for future candidates.
 
