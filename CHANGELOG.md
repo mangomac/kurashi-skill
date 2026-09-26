@@ -12,6 +12,19 @@
 ## [Unreleased]
 
 ### Added
+- 新スキル `address-normalize`: デジタル庁ABRの公開マスタで住所文字列を分解・正規化(lg_code/町字IDの特定、丁目・漢数字の表記ゆれ吸収)。`lookup.py` とテスト5件つき(2026-09-26実測)
+- テスト基盤: 直近追加の7スキル(volcano, shelter-lookup, amedas-weather, air-quality, garbage-day, eew-monitor, estat-stats)の固定フィクスチャによるスモークテストを tests/test-core-skills.py に追加。air-quality/lookup.py に select_hits を切り出し単体テストを追加(新規ヘルパー=テスト同梱の規則化)
+- scripts/check-measured-date.py: SKILL.md の実測日が90日を超えるとCI失敗(スケジュール実行時はissue自動起票で再実測リマインド)
+- scripts/check-urls.py: AEROS/WBGT/ABRの新規エンドポイント用の応答契約を追加
+- docs/response-contract.md: 「取得時の落とし穴チェックリスト」節を追加(SPA-200、未解除データ残存、CSV方言、地点ごとの測定項目差など8項目)。全SKILL.mdの失敗時対応節からリンク
+- CONTRIBUTING.md: ヘルパースクリプト(lookup.py)の切り出し基準・引数規約・テスト同梱ルール、eew-monitor の非公式リレー例外条項を追加
+
+### Changed
+- 実測日の表記をヘッダ行 `**実測日: YYYY-MM-DD**` に統一(10スキルに追記)
+
+### Added
+- 新スキル `heatstroke`: 環境省 熱中症予防情報サイトのAPI v1から暑さ指数(WBGT)予測値・実況値を取得。地点マスタ865地点(緯度経度つき)、5段階区分表示の `lookup.py` とテストつき(2026-09-26実測)
+- 新スキル `air-quality`: 環境省AEROS(そらまめくん)の大気汚染測定値(速報値)を公開CSV/公式JSON APIから取得。全国最新1時間値(noudoAll)、測定局ごとのtoday/7day、PM2.5注意喚起。検索用 `lookup.py` つき(2026-09-26実測)
 - 静的データの鮮度ポリシー(`data_as_of` / `valid_through` / `source_version`)、30日前の期限ゲート、六曜・郵便料金の核心行fixtureを追加
 - ドキュメント: 目的別のおすすめ導入セット(パック)と代表質問10をまとめたスターターガイド `docs/getting-started.md` を追加
 - 共通レスポンス契約と、「今日の外出」「災害への備え」の複合生活シナリオガイドを追加。

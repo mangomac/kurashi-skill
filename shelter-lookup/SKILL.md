@@ -52,7 +52,7 @@ python3 shelter-lookup/lookup.py \
   --cache-dir /tmp/kurashi-shelter-cache
 ```
 
-`--hazard` は `flood`(洪水)、`landslide`(崖崩れ・土石流・地滑り)、`storm-surge`(高潮)、`earthquake`(地震)、`tsunami`(津波)、`fire`(大規模な火事)、`inland-flood`(内水氾濫)、`volcano`(火山現象)に対応する。日本語名も指定できる。取得済みCSVは `~/.cache/kurashi-skill/shelter-lookup/` に保存し、再取得は `--refresh` を使う。
+`--hazard` は `flood`(洪水)、`landslide`(崖崩れ・土石流・地滑り)、`storm-surge`(高潮)、`earthquake`(地震)、`tsunami`(津波)、`fire`(大規模な火事)、`inland-flood`(内水氾濫)、`volcano`(火山現象)に対応する。日本語名も指定できる。取得済みCSVは `~/.cache/kurashi-skill/shelter-lookup/` に保存し、再取得は `--refresh` を使う。キャッシュが7日より古い場合は、市町村の更新を取りこぼす可能性があるため stderr に警告を出す。
 
 出力例:
 
@@ -99,6 +99,8 @@ curl -s https://hinanmap.gsi.go.jp/hinanjocp/defaultFtpData/publicHistoryCSV/pub
 
 ## エラー・失敗時の対応
 
+
+共通の取得時チェックリストは [共通レスポンス契約](../docs/response-contract.md) の「取得時の落とし穴チェックリスト」を参照。
 - **市町村ごとの個別ファイルは404**: `csv/<市町村コード>.csv` のような個別ファイルは2026-09-19実測で404(公開ページはブラウザ内でZIPを組み立てる方式)。直リンクを推測で書かず、全国ファイルをダウンロードしてgrepする。
 - **座標または災害種別が不正**: 緯度は-90〜90、経度は-180〜180の範囲で指定する。未対応の災害種別は候補一覧とともに終了コード2で返す。
 - **該当場所が0件**: データ取得エラーとは分けて「該当する場所が見つからない」と伝え、自治体の公式情報も確認する。
